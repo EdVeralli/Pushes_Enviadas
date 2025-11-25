@@ -2,11 +2,11 @@
 
 Script automatizado para generar reportes de mensajes push enviados por el chatbot del Gobierno de la Ciudad de Buenos Aires (GCBA). Soporta consultas de **meses completos** y **rangos de fechas personalizados**.
 
-## 📋 Descripción
+## Descripción
 
 Este proyecto consulta las métricas de mensajes push enviados a través de AWS Athena, procesando datos de las tablas `boti_event_metrics_2` y `boti_message_metrics_2`. Genera automáticamente reportes en formato CSV y Excel con la estructura de dashboard requerida por GCBA.
 
-## ✨ Características
+## Características
 
 - ✅ **Dos modos de consulta:** Mes completo o rango personalizado de fechas
 - ✅ Consulta automática a AWS Athena con filtrado flexible
@@ -17,7 +17,7 @@ Este proyecto consulta las métricas de mensajes push enviados a través de AWS 
 - ✅ Manejo robusto de errores con mensajes descriptivos
 - ✅ Generación automática de nombres de archivo descriptivos
 
-## 🔧 Requisitos Previos
+## Requisitos Previos
 
 ### Software Necesario
 
@@ -44,7 +44,7 @@ pip install -r requirements.txt
 - **Base de datos:** `caba-piba-consume-zone-db`
 - **Región:** `us-east-1`
 
-## 🚀 Instalación
+## Instalación
 
 1. **Clonar el repositorio:**
    ```bash
@@ -62,7 +62,7 @@ pip install -r requirements.txt
    aws-azure-login --configure --profile default
    ```
 
-## 📝 Configuración
+## Configuración
 
 El script se configura mediante el archivo `config_fechas.txt` y soporta dos modos:
 
@@ -86,7 +86,7 @@ FECHA_FIN=2025-10-15
 - El mes debe estar entre 1 y 12
 - FECHA_INICIO debe ser ≤ FECHA_FIN
 
-## 🎯 Uso
+## Uso
 
 ### 1. Autenticarse en AWS
 
@@ -108,7 +108,7 @@ python Pushes_Enviadas.py
 
 El script mostrará claramente qué modo está usando y el período configurado.
 
-## 📊 Salida
+## Salida
 
 El script genera dos archivos en la carpeta `output/`:
 
@@ -143,7 +143,7 @@ El script genera dos archivos en la carpeta `output/`:
 
 > **Nota:** Solo la celda D6 (Mensajes Pushes Enviados) se completa automáticamente. Las demás métricas deben llenarse con otros scripts o manualmente.
 
-## 🔍 Query Ejecutada
+## Query Ejecutada
 
 El script ejecuta la siguiente consulta SQL en Athena:
 
@@ -161,7 +161,7 @@ AND events_name in ('notification-status-sent')
 - `fecha_inicio`: Fecha de inicio del período
 - `fecha_fin`: Fecha de fin del período
 
-## 💡 Casos de Uso
+## Casos de Uso
 
 ### Reportes Mensuales
 ```ini
@@ -205,9 +205,7 @@ FECHA_FIN=2025-10-15
 ```
 Análisis de días críticos o eventos puntuales.
 
-Para más ejemplos, consulta `EJEMPLOS_CONFIGURACION.md`.
-
-## 🛠️ Troubleshooting
+## Troubleshooting
 
 ### Error: Credenciales expiradas
 
@@ -282,7 +280,7 @@ pip install openpyxl
 
 El JOIN entre tablas puede tardar varios minutos. Esto es normal para grandes volúmenes de datos.
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 Pushes_Enviadas/
@@ -299,14 +297,14 @@ Pushes_Enviadas/
     └── mensajes_pushes_enviados_20251001_a_20251015.xlsx
 ```
 
-## 🔐 Seguridad
+## Seguridad
 
 - Las credenciales AWS se manejan mediante `aws-azure-login`
 - No se almacenan credenciales en el código
 - Se requiere autenticación mediante Azure AD
 - Solo usuarios con rol `PIBAConsumeBoti` pueden ejecutar el script
 
-## 🔄 Workflow Típico
+## Workflow Típico
 
 ```bash
 # 1. Autenticarse
@@ -323,7 +321,7 @@ ls output/
 # 5. Para otro período, repetir desde el paso 2
 ```
 
-## 🆘 Validaciones Automáticas
+## Validaciones Automáticas
 
 El script valida automáticamente:
 
@@ -335,7 +333,7 @@ El script valida automáticamente:
 - ✅ Credenciales AWS válidas
 - ✅ Rol correcto (PIBAConsumeBoti)
 
-## 🤝 Contribuciones
+## Contribuciones
 
 Este es un proyecto interno del GCBA. Para contribuir:
 
@@ -345,22 +343,22 @@ Este es un proyecto interno del GCBA. Para contribuir:
 4. Push a la rama (`git push origin feature/AmazingFeature`)
 5. Abrir un Pull Request
 
-## 👤 Autor
+## Autor
 
 **Eduardo Veralli**
 - GitHub: [@EdVeralli](https://github.com/EdVeralli)
 
-## 📄 Licencia
+## Licencia
 
 Proyecto del Gobierno de la Ciudad de Buenos Aires (GCBA).
 
-## 📞 Soporte
+## Soporte
 
 Para problemas o consultas:
 - [Abrir un issue en GitHub](https://github.com/EdVeralli/Pushes_Enviadas/issues)
 - Contactar al equipo de Data Analytics GCBA
 
-## 📊 Información Técnica
+## Información Técnica
 
 ### Versión
 
